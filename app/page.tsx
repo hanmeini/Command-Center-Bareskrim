@@ -62,7 +62,6 @@ export default function Home() {
     }
   };
 
-  // Generate random stable-ish technical data for "visual flavor"
   const getRandomData = (index: number) => {
     const id = `CAM-${(index + 10).toString(16).toUpperCase()}`;
     const lat = `-6.${2000 + index * 10}`;
@@ -71,34 +70,34 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-red-500 font-mono relative overflow-hidden flex flex-col selection:bg-red-900/50">
-      {/* Tactical Background Grid */}
+    <main className="min-h-screen bg-slate-50 text-slate-800 font-mono relative overflow-hidden flex flex-col selection:bg-blue-500/30">
+      {/* Light Tactical Background Grid */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(20,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(20,0,0,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_90%)]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)]"></div>
       </div>
 
       {/* Top Status Bar (Header) */}
-      <header className="relative z-30 w-full border-b-2 border-red-900/30 bg-black/80 backdrop-blur-md">
+      <header className="relative z-30 w-full border-b border-slate-300 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="max-w-[2400px] mx-auto px-4 py-2 flex items-center justify-between">
           {/* Left: Brand / System Status */}
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 relative flex items-center justify-center border border-red-800 bg-red-950/20">
+              <div className="w-8 h-8 relative flex items-center justify-center border border-slate-800 bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/favivon.ico"
                   alt="Logo"
-                  className="w-5 h-5 opacity-80 mix-blend-screen"
+                  className="w-5 h-5 opacity-90 mix-blend-multiply"
                 />
-                <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-red-500"></div>
-                <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-red-500"></div>
+                <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-slate-800"></div>
+                <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-slate-800"></div>
               </div>
               <div className="flex flex-col">
-                <h1 className="text-xl font-bold tracking-[0.2em] text-red-500 leading-none">
-                  COMMAND<span className="text-white">CENTER</span>
+                <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
+                  COMMAND<span className="text-slate-500">CENTER</span>
                 </h1>
-                <span className="text-[10px] text-red-700 tracking-[0.3em] uppercase">
+                <span className="text-[10px] text-slate-500 tracking-[0.3em] uppercase">
                   Bareskrim Polri // SEC_LEV_5
                 </span>
               </div>
@@ -108,24 +107,24 @@ export default function Home() {
           {/* Center: Time / Mode */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex flex-col items-center">
-              <span className="text-[10px] text-red-800 tracking-widest">
+              <span className="text-[10px] text-slate-500 tracking-widest">
                 SYSTEM_TIME
               </span>
-              <span className="text-2xl font-bold text-white tracking-widest">
+              <span className="text-2xl font-bold text-slate-800 tracking-widest">
                 {currentTime}
               </span>
             </div>
-            <div className="h-8 w-[1px] bg-red-900/50"></div>
+            <div className="h-8 w-[1px] bg-slate-300"></div>
             <div className="flex gap-2">
               <button
                 onClick={() => setLayoutMode("grid")}
-                className={`px-4 py-1 border ${layoutMode === "grid" ? "border-red-500 bg-red-500/10 text-red-400" : "border-red-900/30 text-red-900 hover:text-red-700"} text-xs tracking-wider transition-all`}
+                className={`px-4 py-1 border ${layoutMode === "grid" ? "border-slate-800 bg-slate-800 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-xs tracking-wider transition-all font-bold`}
               >
                 GRID_VIEW
               </button>
               <button
                 onClick={() => setLayoutMode("bento")}
-                className={`px-4 py-1 border ${layoutMode === "bento" ? "border-amber-500 bg-amber-500/10 text-amber-500" : "border-red-900/30 text-red-900 hover:text-red-700"} text-xs tracking-wider transition-all`}
+                className={`px-4 py-1 border ${layoutMode === "bento" ? "border-amber-500 bg-amber-500 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-xs tracking-wider transition-all font-bold`}
               >
                 TACTICAL_VIEW
               </button>
@@ -140,28 +139,28 @@ export default function Home() {
                   <button
                     key={cols}
                     onClick={() => setGridCols(cols as 2 | 3 | 4)}
-                    className={`w-8 h-8 flex items-center justify-center border text-xs font-bold transition-all ${gridCols === cols ? "border-red-500 bg-red-500 text-black" : "border-red-900/40 text-red-800"}`}
+                    className={`w-8 h-8 flex items-center justify-center border text-xs font-bold transition-all ${gridCols === cols ? "border-slate-800 bg-slate-800 text-white" : "border-slate-300 text-slate-500 hover:bg-slate-100"}`}
                   >
                     {cols}
                   </button>
                 ))}
               </div>
             )}
-            <div className="px-3 py-1 bg-red-600 text-black text-xs font-bold animate-pulse">
-              LIVE_FEED
+            <div className="px-3 py-1 bg-red-600 text-white text-xs font-bold animate-pulse shadow-md shadow-red-500/20">
+              LIVE
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Grid Area */}
-      <div className="relative z-20 flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-red-900 scrollbar-track-black">
+      <div className="relative z-20 flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-200">
         <div
           className={`
-                grid gap-2 w-full max-w-[2400px] mx-auto pb-10 transition-all duration-300
+                grid gap-3 w-full max-w-[2400px] mx-auto pb-10 transition-all duration-300
                 ${mounted ? "opacity-100" : "opacity-0"}
                 ${getGridColsClass()}
-                ${layoutMode === "bento" ? "grid-rows-4 md:grid-rows-3 gap-3" : ""}
+                ${layoutMode === "bento" ? "grid-rows-4 md:grid-rows-3 gap-4" : ""}
             `}
         >
           {cameras.map((_, index) => {
@@ -170,84 +169,84 @@ export default function Home() {
               <div
                 key={index}
                 className={`
-                            relative bg-black border border-red-900/20 overflow-hidden group hover:border-red-500/50 transition-colors duration-300
+                            relative bg-white border border-slate-300 overflow-hidden group hover:border-slate-800 transition-all duration-300 shadow-sm
                             ${getBentoClasses(index)}
-                            ${layoutMode === "bento" ? "aspect-auto" : "aspect-video"}
+                            ${layoutMode === "bento" ? "aspect-auto min-h-[250px]" : "aspect-video"}
                         `}
               >
                 {/* Video Layer */}
-                <div className="absolute inset-[2px] z-10">
+                <div className="absolute inset-[3px] z-10 bg-slate-900 border border-slate-100">
                   <iframe
                     src={iframeSrc}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 grayscale-[0.3] hover:grayscale-0 contrast-125"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 contrast-125 brightness-110"
                     allowFullScreen
                     frameBorder="0"
                   ></iframe>
-                  {/* Scanlines inside video */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.6)_50%)] bg-[length:100%_4px] pointer-events-none opacity-40"></div>
+                  {/* Dark Scanlines for light mode - subtle */}
+                  <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_3px] pointer-events-none opacity-30"></div>
                 </div>
 
-                {/* HUD Overlay Layer */}
+                {/* HUD Overlay Layer (Dark Inverted) */}
                 <div className="absolute inset-0 z-20 pointer-events-none">
                   {/* Corner Brackets */}
                   <svg
-                    className="absolute top-2 left-2 w-8 h-8 text-red-600 opacity-60"
+                    className="absolute top-2 left-2 w-8 h-8 text-slate-800 opacity-80"
                     viewBox="0 0 32 32"
                   >
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="3"
                       d="M0,10 L0,0 L10,0"
                     />
                   </svg>
                   <svg
-                    className="absolute top-2 right-2 w-8 h-8 text-red-600 opacity-60"
+                    className="absolute top-2 right-2 w-8 h-8 text-slate-800 opacity-80"
                     viewBox="0 0 32 32"
                   >
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="3"
                       d="M22,0 L32,0 L32,10"
                     />
                   </svg>
                   <svg
-                    className="absolute bottom-2 left-2 w-8 h-8 text-red-600 opacity-60"
+                    className="absolute bottom-2 left-2 w-8 h-8 text-slate-800 opacity-80"
                     viewBox="0 0 32 32"
                   >
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="3"
                       d="M0,22 L0,32 L10,32"
                     />
                   </svg>
                   <svg
-                    className="absolute bottom-2 right-2 w-8 h-8 text-red-600 opacity-60"
+                    className="absolute bottom-2 right-2 w-8 h-8 text-slate-800 opacity-80"
                     viewBox="0 0 32 32"
                   >
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="3"
                       d="M32,22 L32,32 L22,32"
                     />
                   </svg>
 
                   {/* Crosshair */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-30 transition-opacity">
-                    <div className="w-8 h-[1px] bg-red-500"></div>
-                    <div className="h-8 w-[1px] bg-red-500 absolute"></div>
-                    <div className="w-20 h-20 border border-red-500/50 rounded-full absolute"></div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-50 transition-opacity">
+                    <div className="w-12 h-[1px] bg-slate-800"></div>
+                    <div className="h-12 w-[1px] bg-slate-800 absolute"></div>
+                    <div className="w-24 h-24 border border-slate-800/80 rounded-full absolute border-dashed"></div>
                   </div>
 
-                  {/* Data Blocks */}
-                  <div className="absolute top-3 left-10 text-[10px] font-bold text-red-500 bg-black/50 px-2 tracking-widest backdrop-blur-sm">
-                    {data.id} :: LIVE
+                  {/* Data Blocks (Light Frost) */}
+                  <div className="absolute top-4 left-10 text-[10px] font-bold text-slate-900 bg-white/80 border border-slate-200 px-2 tracking-widest backdrop-blur-sm shadow-sm">
+                    {data.id} :: ONLINE
                   </div>
 
-                  <div className="absolute bottom-3 right-10 flex flex-col items-end text-[9px] text-red-400/80 leading-tight bg-black/50 p-1 backdrop-blur-sm">
+                  <div className="absolute bottom-4 right-10 flex flex-col items-end text-[9px] text-slate-700 bg-white/80 border border-slate-200 p-1 backdrop-blur-sm shadow-sm font-bold">
                     <span>
                       COORD: {data.lat}, {data.long}
                     </span>
@@ -255,9 +254,9 @@ export default function Home() {
                   </div>
 
                   {/* REC indicator */}
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5">
-                    <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                    <span className="text-[9px] font-bold text-red-600">
+                  <div className="absolute top-5 right-5 flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+                    <span className="text-[9px] font-bold text-red-600 bg-white/90 px-1 rounded-sm">
                       REC
                     </span>
                   </div>
@@ -269,24 +268,27 @@ export default function Home() {
       </div>
 
       {/* Bottom Status Bar */}
-      <footer className="relative z-30 w-full border-t border-red-900/30 bg-black/90 px-6 py-2 flex items-center justify-between text-[10px] text-red-800/80 uppercase tracking-widest">
+      <footer className="relative z-30 w-full border-t border-slate-300 bg-white/95 px-6 py-2 flex items-center justify-between text-[10px] text-slate-600 uppercase tracking-widest font-bold">
         <div className="flex gap-6">
           <span>
-            SYS_STATUS: <span className="text-red-500">OPTIMAL</span>
+            SYS_STATUS: <span className="text-emerald-600">OPTIMAL</span>
           </span>
           <span>ACT_THREADS: 12</span>
           <span>NET_LATENCY: 14ms</span>
         </div>
-        <div className="flex gap-1 opacity-50">
+        <div className="flex gap-1 opacity-80">
           {Array.from({ length: 20 }).map((_, i) => (
             <div
               key={i}
-              className="w-1 h-2 bg-red-900"
-              style={{ opacity: Math.random() }}
+              className="w-1 h-2 bg-slate-300"
+              style={{ opacity: 0.2 + (i % 5) * 0.15 }}
             ></div>
           ))}
         </div>
-        <div>&copy; 2024 POLRI_COMMAND_SYSTEM // v2.1.0_BUILD_ALPHA</div>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
+          &copy; 2026 BARESKRIM_COMMAND // v2.1.0_LIGHT_OPS
+        </div>
       </footer>
     </main>
   );
