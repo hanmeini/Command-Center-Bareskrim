@@ -95,39 +95,45 @@ export default function Home() {
               </div>
               <div className="flex flex-col">
                 <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
-                  COMMAND<span className="text-slate-500">CENTER</span>
+                  DIT <span className="text-slate-500">TIPUDEKSUS</span>
                 </h1>
-                <span className="text-sm text-slate-500 tracking-[0.3em] uppercase">
-                  DIT TIPIDEKSUS
+                <span className="text-xl font-bold tracking-[0.2em] text-slate-500 leading-none">
+                  BARESKRIM <span className="text-slate-900">POLRI</span>
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Center: Time / Mode */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Center: Title / Time / Mode */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
             <div className="flex flex-col items-center">
-              <span className="text-[10px] text-slate-500 tracking-widest">
-                SYSTEM_TIME
-              </span>
-              <span className="text-2xl font-bold text-slate-800 tracking-widest">
-                {currentTime}
-              </span>
+              <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
+                COMMAND<span className="text-slate-500">CENTER</span>
+              </h1>
             </div>
-            <div className="h-8 w-[1px] bg-slate-300"></div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setLayoutMode("grid")}
-                className={`px-4 py-1 border ${layoutMode === "grid" ? "border-slate-800 bg-slate-800 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-xs tracking-wider transition-all font-bold`}
-              >
-                GRID_VIEW
-              </button>
-              <button
-                onClick={() => setLayoutMode("bento")}
-                className={`px-4 py-1 border ${layoutMode === "bento" ? "border-amber-500 bg-amber-500 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-xs tracking-wider transition-all font-bold`}
-              >
-                TACTICAL_VIEW
-              </button>
+
+            <div className="hidden md:flex items-center gap-8">
+              <div className="flex flex-col items-center">
+                <span className="text-xl font-bold text-slate-800 tracking-widest leading-none">
+                  {currentTime}
+                </span>
+                {/* Removed separate SYSTEM_TIME label to save vertical space if needed, checking request: "diatas sistem time dan grid view" - implies stacking. */}
+              </div>
+              <div className="h-4 w-[1px] bg-slate-300"></div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setLayoutMode("grid")}
+                  className={`px-3 py-0.5 border ${layoutMode === "grid" ? "border-slate-800 bg-slate-800 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-[10px] tracking-wider transition-all font-bold`}
+                >
+                  GRID
+                </button>
+                <button
+                  onClick={() => setLayoutMode("bento")}
+                  className={`px-3 py-0.5 border ${layoutMode === "bento" ? "border-amber-500 bg-amber-500 text-white" : "border-slate-300 text-slate-500 hover:text-slate-800 hover:border-slate-400"} text-[10px] tracking-wider transition-all font-bold`}
+                >
+                  TACTICAL
+                </button>
+              </div>
             </div>
           </div>
 
