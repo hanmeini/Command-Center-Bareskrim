@@ -27,7 +27,7 @@ export default function Home() {
   // Calculate items based on mode
   const cameras =
     layoutMode === "bento"
-      ? Array.from({ length: 7 })
+      ? Array.from({ length: 12 })
       : Array.from({ length: 12 });
 
   // The provided iframe URL
@@ -83,12 +83,12 @@ export default function Home() {
           {/* Left: Brand / System Status */}
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 relative flex items-center justify-center border border-slate-800 bg-slate-100">
+              <div className="w-20 h-20 relative flex items-center justify-center border border-slate-800 bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/favivon.ico"
                   alt="Logo"
-                  className="w-5 h-5 opacity-90 mix-blend-multiply"
+                  className="w-20 h-20 opacity-90 mix-blend-multiply"
                 />
                 <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-slate-800"></div>
                 <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-slate-800"></div>
@@ -97,8 +97,8 @@ export default function Home() {
                 <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
                   COMMAND<span className="text-slate-500">CENTER</span>
                 </h1>
-                <span className="text-[10px] text-slate-500 tracking-[0.3em] uppercase">
-                  Bareskrim Polri // SEC_LEV_5
+                <span className="text-sm text-slate-500 tracking-[0.3em] uppercase">
+                  DIT TIPIDEKSUS
                 </span>
               </div>
             </div>
