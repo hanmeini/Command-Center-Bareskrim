@@ -81,23 +81,23 @@ export default function Home() {
       <header className="relative z-30 w-full border-b border-slate-300 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="max-w-[2400px] mx-auto px-4 py-2 flex items-center justify-between">
           {/* Left: Brand / System Status */}
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-20 h-20 relative flex items-center justify-center border border-slate-800 bg-slate-100">
+          <div className="flex items-center gap-3 md:gap-6">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 relative flex items-center justify-center border border-slate-800 bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/favivon.ico"
                   alt="Logo"
-                  className="w-20 h-20 opacity-90 mix-blend-multiply"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 opacity-90 mix-blend-multiply"
                 />
                 <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-slate-800"></div>
                 <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-slate-800"></div>
               </div>
               <div className="flex flex-col">
-                <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
+                <h1 className="text-xs sm:text-sm md:text-base lg:text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
                   DIT <span className="text-slate-500">TIPUDEKSUS</span>
                 </h1>
-                <span className="text-xl font-bold tracking-[0.2em] text-slate-500 leading-none">
+                <span className="text-xs sm:text-sm md:text-base lg:text-xl font-bold tracking-[0.2em] text-slate-500 leading-none">
                   BARESKRIM <span className="text-slate-900">POLRI</span>
                 </span>
               </div>
@@ -105,7 +105,8 @@ export default function Home() {
           </div>
 
           {/* Center: Title / Time / Mode */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+          {/* Center: Title / Time / Mode - Hidden on smaller screens to prevent overlap */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-2">
             <div className="flex flex-col items-center">
               <h1 className="text-xl font-bold tracking-[0.2em] text-slate-900 leading-none">
                 COMMAND<span className="text-slate-500">CENTER</span>
